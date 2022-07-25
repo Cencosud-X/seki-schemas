@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "required": ["name", "notifications"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Product description"
+    },
+    "notifications": {
+      "required": ["email"],
+      "type": "object",
+      "description": "Configuration for notifications",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "email address for email notifications"
+        }
+      }
+    },
+    "targets": {
+      "type": "object",
+      "description": "Projects specific setttings",
+      "additionalProperties": {
+        "$ref": "#/definitions/targetDefinition"
+      }
+    }
+  },
+
+  "definitions": {
+    "targetDefinition": {
+      "type": "object",
+      "description": "Project to configure",
+      "required": ["stages"],
+      "properties": {
+        "stages": {
+          "default": { "staging": { "version": 1 } },
+          "type": "object",
+          "required": ["staging"],
+          "description": "Stages specific configuration",
+          "properties": {
+            "staging": {
+              "$ref": "#/definitions/stageDefinition"
+            },
+            "production": {
+              "$ref": "#/definitions/stageDefinition"
+            }
+          }
+        },
+
+        "vulnerabilities": {
+          "type": "object",
+          "description": "Vulnerabilities section",
+          "properties": {
+            "ignores": {
+              "type": "array",
+              "description": "Explicit CVE Codes to ignore",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "stageDefinition": {
+      "required": ["version"],
+      "type": "object",
+      "description": "Staging configurations",
+      "properties": {
+        "version": {
+          "default": 1,
+          "type": "integer",
+          "description": "Url version"
+        },
+        "replicas": {
+          "default": 1,
+          "type": "integer",
+          "description": "Number of instances to replicate"
+        },
+        "resources": {
+          "$ref": "#/definitions/resourceDefinition"
+        }
+      }
+    },
+    "resourceDefinition": {
+      "type": "object",
+      "description": "Specific resources configuration",
+      "properties": {
+        "cpu": {
+          "default": 0.25,
+          "type": "number",
+          "description": "Maximun CPU to allocate for each replica"
+        },
+        "memory": {
+          "default": 256,
+          "type": "integer",
+          "description": "Maximun MB to allocate for each replica"
+        }
+      }
+    }
+  }
+}
