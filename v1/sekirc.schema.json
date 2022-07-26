@@ -1,6 +1,3 @@
-// 20220724214353
-// https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/seki/sekirc.schema.json
-
 {
   "$schema": "http://json-schema.org/schema",
   "required": [
@@ -41,10 +38,17 @@
     "targetDefinition": {
       "type": "object",
       "description": "Project to configure",
-      "required": [
-        "stages"
-      ],
       "properties": {
+        "alias": {
+          "description": "Alias for the project (for use in Seki)",
+          "type": "string",
+          "minLength": 3
+        },
+        "description": {
+          "description": "Description for the project (for use in Seki)",
+          "type": "string",
+          "minLength": 3
+        },
         "stages": {
           "default": {
             "staging": {
