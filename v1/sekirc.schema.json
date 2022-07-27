@@ -1,9 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "required": [
-    "name",
-    "notifications"
-  ],
+  "required": ["name", "notifications"],
   "properties": {
     "name": {
       "type": "string",
@@ -14,9 +11,7 @@
       "description": "Product description"
     },
     "notifications": {
-      "required": [
-        "email"
-      ],
+      "required": ["email"],
       "type": "object",
       "description": "Configuration for notifications",
       "properties": {
@@ -39,6 +34,12 @@
       "type": "object",
       "description": "Project to configure",
       "properties": {
+        "skip": {
+          "description": "Mark the project skipped",
+          "default": true,
+          "enum": [true],
+          "type": "boolean"
+        },
         "alias": {
           "description": "Alias for the project (for use in Seki)",
           "type": "string",
@@ -56,9 +57,7 @@
             }
           },
           "type": "object",
-          "required": [
-            "staging"
-          ],
+          "required": ["staging"],
           "description": "Stages specific configuration",
           "properties": {
             "staging": {
@@ -86,9 +85,7 @@
       "additionalProperties": false
     },
     "stageDefinition": {
-      "required": [
-        "version"
-      ],
+      "required": ["version"],
       "type": "object",
       "description": "Staging configurations",
       "properties": {
