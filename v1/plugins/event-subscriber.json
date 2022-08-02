@@ -14,6 +14,7 @@
       "properties": {
         "topics": {
           "type": "array",
+          "description": "Topic configuration",
           "minItems": 1,
           "items": {
             "type": "object",
