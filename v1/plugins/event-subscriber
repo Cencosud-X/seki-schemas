@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "required": ["name", "configuration"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "enum": ["event-subscriber"],
+      "description": "Plugin Name"
+    },
+    "configuration": {
+      "required": ["topics"],
+      "type": "object",
+      "description": "Configuration for plugin",
+      "properties": {
+        "topics": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name","onReceiveMessagesHandler"],
+            "properties": {
+              "required": true,
+              "name": {
+                "type": "string",
+                "description": "Topic name to subscribe"
+              },
+              "pagination": {
+                "type": "integer",
+                "default": 30,
+                "description": "Items per call"
+              },
+              "onReceiveMessagesHandler": {
+                "type": "string",
+                "description": "Handler to call when receive messages from the streamer"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
