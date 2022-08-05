@@ -42,7 +42,8 @@
       "properties": {
         "frontendProject": {
           "type": "string",
-          "description": "Front end project to lift in ionic"
+          "description": "Front end project to lift in ionic",
+          "minLength": 2
         }
       }
     }
