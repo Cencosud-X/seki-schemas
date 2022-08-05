@@ -39,7 +39,8 @@
       "properties": {
         "frontendProject": {
           "type": "string",
-          "description": "Front end project to lift in electron"
+          "description": "Front end project to lift in electron",
+          "minLength": 2
         }
       }
     }
