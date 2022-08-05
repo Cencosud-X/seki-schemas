@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "required": [
+    "name",
+    "description",
+    "path",
+    "kind"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Project name",
+      "readOnly": true
+    },
+    "description": {
+      "type": "string",
+      "description": "Project description",
+      "readOnly": true
+    },
+    "path": {
+      "type": "string",
+      "description": "Project relative path to install",
+      "readOnly": true
+    },
+    "kind": {
+      "type": "string",
+      "description": "Project type",
+      "enum": ["api"],
+      "readOnly": true
+    },
+    "settings": {
+      "required": [],
+      "type": "object",
+      "description": "Specific configuration",
+      "properties": {
+        "prefix": {
+          "type": "string",
+          "description": "Global prefix for the api routes",
+          "default": "api"
+        },
+        "port": {
+          "type": "integer",
+          "description": "Port to lift the api",
+          "default": 8080
+        }
+      }
+    }
+  }
+}
