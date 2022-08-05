@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "required": [
+    "name",
+    "description",
+    "path",
+    "kind",
+    "settings"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Project name",
+      "readOnly": true
+    },
+    "description": {
+      "type": "string",
+      "description": "Project description",
+      "readOnly": true
+    },
+    "path": {
+      "type": "string",
+      "description": "Project relative path to install",
+      "readOnly": true
+    },
+    "kind": {
+      "type": "string",
+      "description": "Project type",
+      "enum": [
+        "subscriber"
+      ],
+      "readOnly": true
+    },
+    "settings": {
+      "default": {"name":"event-subscriber"},
+      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/plugins/event-subscriber.json"
+    }
+  }
+}
