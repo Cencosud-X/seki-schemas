@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "required": ["environment_vars"],
+  "properties": {
+    "environment_vars": {
+      "required": ["imports"],
+      "type": "object",
+      "description": "Configuration for environment variables",
+      "properties": {
+        "imports": {
+          "type": "array",
+          "description": "Variable list to import from the root folder (workspace path)",
+          "items": {
+            "type": "string",
+            "description": "variable name to import",
+            "minItems": 0
+          }
+        }
+      }
+    }
+  }
+}
