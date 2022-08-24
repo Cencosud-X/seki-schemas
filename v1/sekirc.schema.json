@@ -17,7 +17,8 @@
       "properties": {
         "email": {
           "type": "string",
-          "description": "email address for email notifications"
+          "description": "email address for email notifications",
+          "format": "email"
         }
       }
     },
