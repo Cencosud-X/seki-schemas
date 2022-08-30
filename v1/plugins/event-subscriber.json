@@ -25,6 +25,11 @@
                 "type": "string",
                 "description": "Topic name to subscribe"
               },
+              "provider": {
+                "type": "string",
+                "description": "Stream technology provider",
+                "enum": ["PubSub", "Kafka"]
+              },
               "pagination": {
                 "type": "integer",
                 "default": 30,
