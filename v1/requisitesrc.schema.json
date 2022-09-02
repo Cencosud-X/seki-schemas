@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "required": ["dependencies"],
+  "properties": {
+    "dependencies": {
+      "type": "array",
+      "description": "Dependency item",
+      "items": {
+        "type": "object",
+        "description": "Dependency configuration",
+        "properties": {
+          "required": true,
+          "name": {
+            "type": "string",
+            "description": "Name of the dependency"
+          },
+          "website": {
+            "type": "string",
+            "description": "More information of the dependency"
+          },
+          "files": {
+            "type": "object",
+            "description": "Recipe scripts (execution order: verification,installation,verification,after, if fails executes rollback)",
+            "required": ["installation"],
+            "properties": {
+              "required": true,
+              "verification": {
+                "type": "string",
+                "description": "Check script that return true if the dependency already exists in the host computer"
+              },
+              "installation": {
+                "type": "string",
+                "description": "Recipe script that has all the command that need to execute for installed dependency"
+              },
+              "after": {
+                "type": "string",
+                "description": "Post installation script that execute after recipe was executed and verification script returns true"
+              },
+              "rollback": {
+                "type": "string",
+                "description": "Rollback script that execute if something fails in the recipe script"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "required": ["name", "configuration"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "enum": ["events"],
+      "description": "Plugin Name"
+    },
+    "configuration": {
+      "required": ["topics"],
+      "type": "object",
+      "description": "Configuration for plugin",
+      "properties": {
+        "topics": {
+          "type": "array",
+          "description": "Topic configuration",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name","onReceiveMessagesHandler"],
+            "properties": {
+              "required": true,
+              "name": {
+                "type": "string",
+                "description": "Topic name to subscribe"
+              },
+              "provider": {
+                "type": "string",
+                "description": "Stream technology provider",
+                "enum": ["PubSub", "Kafka"]
+              },
+              "pagination": {
+                "type": "integer",
+                "default": 30,
+                "description": "Items per call"
+              },
+              "onReceiveMessagesHandler": {
+                "type": "string",
+                "description": "Handler to call when receive messages from the streamer"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

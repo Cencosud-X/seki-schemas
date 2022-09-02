@@ -35,8 +35,8 @@
       "readOnly": true
     },
     "settings": {
-      "default": {"name":"event-subscriber"},
-      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/plugins/event-subscriber.json"
+      "default": {"name":"events"},
+      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/plugins/eventsrc.json"
     }
   }
 }
