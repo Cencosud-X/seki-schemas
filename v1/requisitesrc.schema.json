@@ -14,6 +14,24 @@
             "type": "string",
             "description": "Name of the dependency"
           },
+          "short_description": {
+            "type": "object",
+            "required": ["es","en"],
+            "properties": {
+              "es":{
+                "type":"string",
+                "description": "dependency short description (spanish)"
+              },
+              "en":{
+                "type":"string",
+                "description": "dependency short description (english)"
+              },
+              "pt":{
+                "type":"string",
+                "description": "dependency short description (portugues)"
+              }
+            }
+          },
           "website": {
             "type": "string",
             "description": "More information of the dependency"
