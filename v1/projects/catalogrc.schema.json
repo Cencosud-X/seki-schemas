@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "description": "Catalog information for a list of templates in Seki",
+  "required": [
+    "name",
+    "descriptions"
+  ],
+  "properties": {
+    "required": true,
+    "name": {
+      "type": "string",
+      "description": "Name of the catalog",
+      "minLength": 3
+    },
+    "descriptions": {
+      "description": "Localized descriptions to describe the catalog",
+      "type": "object",
+      "required": [
+        "es",
+        "en"
+      ],
+      "properties": {
+        "es": {
+          "type": "string",
+          "description": "catalog description (spanish)",
+          "minLength": 5
+        },
+        "en": {
+          "type": "string",
+          "description": "catalog description (english)",
+          "minLength": 5
+        },
+        "pt": {
+          "type": "string",
+          "description": "catalog description (portugues)",
+          "minLength": 5
+        }
+      }
+    }
+  }
+}
