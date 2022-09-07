@@ -5,7 +5,7 @@
    "required": [
      "name",
      "tags",
-     "description",
+     "descriptions",
      "interpolations"
    ],
    "properties": {
@@ -24,7 +24,8 @@
          "minLength": 2
        }
      },
-     "description": {
+     "descriptions": {
+       "description": "Localized description to describe the template",
        "type": "object",
        "required": [
          "es",
