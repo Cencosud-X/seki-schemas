@@ -17,7 +17,7 @@
      },
      "tags": {
        "type": "array",
-       "description": "Tags that describes the technologies that were using the template",
+       "description": "Tags that describes technologies which are using the template",
        "minItems": 1,
        "items": {
          "type": "string",
@@ -25,7 +25,7 @@
        }
      },
      "descriptions": {
-       "description": "Localized description to describe the template",
+       "description": "Localized descriptions to describe the template",
        "type": "object",
        "required": [
          "es",
@@ -86,13 +86,19 @@
      },
      "interpolations": {
        "type": "object",
-       "description": "Interpolation Setting for this template",
+       "description": "Interpolation configuration for this template",
+       "required": ["source"],
        "properties": {
          "source": {
            "description": "Folder to inteporlate for the template engine",
            "type": "string",
            "minLength": 2
-         }
+         },
+         "substitutions": {
+          "description": "Additional substitutions variables to add in the interpolation process",
+          "type": "object",
+          "additionalProperties": true
+        }
        }
      }
    }
