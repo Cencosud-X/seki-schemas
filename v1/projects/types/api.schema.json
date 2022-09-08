@@ -11,7 +11,7 @@
           ],
           "readOnly": true
         },
-        "setttings": {
+        "settings": {
           "required": [],
           "type": "object",
           "description": "Specific configuration",

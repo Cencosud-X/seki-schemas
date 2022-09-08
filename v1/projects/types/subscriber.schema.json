@@ -1,42 +1,24 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "required": [
-    "name",
-    "description",
-    "path",
-    "kind",
-    "settings"
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Project name",
-      "minLength": 2,
-      "readOnly": true
+  "allOf": [
+    {
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "Project type",
+          "enum": [
+            "subscriber"
+          ],
+          "readOnly": true
+        },
+        "settings": {
+          "default": {"name":"events"},
+          "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/plugins/eventsrc.schema.json"
+        }
+      }
     },
-    "description": {
-      "type": "string",
-      "description": "Project description",
-      "minLength": 2,
-      "readOnly": true
-    },
-    "path": {
-      "type": "string",
-      "description": "Project relative path to install",
-      "minLength": 2,
-      "readOnly": true
-    },
-    "kind": {
-      "type": "string",
-      "description": "Project type",
-      "enum": [
-        "subscriber"
-      ],
-      "readOnly": true
-    },
-    "settings": {
-      "default": {"name":"events"},
-      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/plugins/eventsrc.json"
+    {
+      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/types/base.schema.json"
     }
-  }
+  ]
 }
