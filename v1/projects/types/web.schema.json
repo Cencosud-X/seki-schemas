@@ -10,6 +10,13 @@
             "web"
           ],
           "readOnly": true
+        },
+        "settings": {
+          "required": [],
+          "type": "object",
+          "description": "Specific configuration",
+          "properties": {
+          }
         }
       }
     },
