@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "allOf": [
+    {
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "Project type",
+          "enum": [
+            "api"
+          ],
+          "readOnly": true
+        },
+        "setttings": {
+          "required": [],
+          "type": "object",
+          "description": "Specific configuration",
+          "properties": {
+            "prefix": {
+              "type": "string",
+              "description": "Global prefix for the api routes",
+              "minLength": 2,
+              "default": "api"
+            },
+            "port": {
+              "type": "integer",
+              "description": "Port to lift the api",
+              "default": 8080
+            }
+          }
+        }
+      }
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/types/base.schema.json"
+    }
+  ]
+}
