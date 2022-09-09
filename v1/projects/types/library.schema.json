@@ -19,12 +19,12 @@
             "publishable": {
               "description": "a library marked as publishable (npm publish)",
               "type":"boolean",
-              "default": "false"
+              "default": false
             },
             "buildable": {
               "description": "a library marked as a 'build' dist output",
               "type":"boolean",
-              "default": "false"
+              "default": false
             }
           }
         }
