@@ -16,6 +16,16 @@
           "type": "object",
           "description": "Specific configuration",
           "properties": {
+            "publishable": {
+              "description": "a library marked as publishable (npm publish)",
+              "type":"boolean",
+              "default": "false"
+            },
+            "buildable": {
+              "description": "a library marked as a 'build' dist output",
+              "type":"boolean",
+              "default": "false"
+            }
           }
         }
       }
