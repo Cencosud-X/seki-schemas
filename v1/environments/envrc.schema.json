@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "additionalProperties": false,
+  "minProperties": 1,
+  "type": "object",
+  "patternProperties": {
+    "^[A-Z0-9_]+$": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "string",
+            "integer",
+            "boolean",
+            "number"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 5
+        },
+        "default": {
+          "description": "asdasd"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": { "type": { "const": "integer" } }
+          },
+          "then": {
+            "properties": { "default": { "type": "integer" } }
+          }
+        },
+        {
+          "if": {
+            "properties": { "type": { "const": "string" } }
+          },
+          "then": {
+            "properties": { "default": { "type": "string" } }
+          }
+        },
+        {
+          "if": {
+            "properties": { "type": { "const": "boolean" } }
+          },
+          "then": {
+            "properties": { "default": { "type": "boolean" } }
+          }
+        },
+        {
+          "if": {
+            "properties": { "type": { "const": "number" } }
+          },
+          "then": {
+            "properties": { "default": { "type": "number" } }
+          }
+        }
+      ]
+    }
+  }
+
+  
+}
