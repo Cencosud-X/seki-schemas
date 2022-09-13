@@ -4,7 +4,12 @@
   "minProperties": 1,
   "type": "object",
   "patternProperties": {
+    "\\$schema": {
+      "type": "string",
+      "description": "Schema JSON associated"
+    },
     "^[A-Z0-9_]+$": {
+      "description": "Variable definition",
       "properties": {
         "type": {
           "type": "string",
