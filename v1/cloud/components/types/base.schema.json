@@ -1,5 +1,11 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "required": ["kind", "settings"],
-  "properties": {}
+  "required": ["identifier", "kind", "settings"],
+  "properties": {
+    "identifier": {
+      "type": "string",
+      "description": "Cloud component identifier",
+      "default": "default"
+    }
+  }
 }

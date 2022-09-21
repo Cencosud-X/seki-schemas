@@ -9,23 +9,11 @@
           "enum": ["mongodb"],
           "readOnly": true
         },
-        "settings": {
-          "required": ["connectionString"],
-          "type": "object",
-          "description": "Specific configuration",
-          "properties": {
-            "connectionString": {
-              "type": "string",
-              "description": "MongoDB connection string",
-              "minLength": 2,
-              "default": "mongodb://localhost:27017/mydb"
-            }
-          }
-        }
+        "settings": {}
       }
     },
     {
-      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/components/types/base.schema.json"
+      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/cloud/components/types/base.schema.json"
     }
   ]
 }

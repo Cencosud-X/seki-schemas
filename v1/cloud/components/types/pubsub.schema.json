@@ -9,23 +9,11 @@
           "enum": ["pubsub"],
           "readOnly": true
         },
-        "settings": {
-          "required": ["credentialsPath"],
-          "type": "object",
-          "description": "Specific configuration",
-          "properties": {
-            "credentialsPath": {
-              "type": "string",
-              "description": "Google service account path",
-              "minLength": 2,
-              "default": "/config/pubsub_default.json"
-            }
-          }
-        }
+        "settings": {}
       }
     },
     {
-      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/components/types/base.schema.json"
+      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/cloud/components/types"
     }
   ]
 }
