@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "description": "Configuration for the cloud component",
+  "required": [
+    "name",
+    "tags",
+    "descriptions",
+    "scripts",
+    "interpolations",
+    "output"
+  ],
+  "properties": {
+    "required": true,
+    "name": {
+      "type": "string",
+      "description": "Name of the cloud component",
+      "minLength": 3
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags that describes technologies which are using the cloud component",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 2
+      }
+    },
+    "descriptions": {
+      "description": "Localized descriptions to describe the cloud component",
+      "type": "object",
+      "required": ["es", "en"],
+      "properties": {
+        "es": {
+          "type": "string",
+          "description": "Cloud component description (spanish)",
+          "minLength": 5
+        },
+        "en": {
+          "type": "string",
+          "description": "Cloud component description (english)",
+          "minLength": 5
+        },
+        "pt": {
+          "type": "string",
+          "description": "Cloud component description (portugues)",
+          "minLength": 5
+        }
+      }
+    },
+    "scripts": {
+      "type": "object",
+      "description": "Recipe scripts (execution order: pre, for_each, post and when fails: rollback)",
+      "required": ["pre", "rollback"],
+      "properties": {
+        "required": true,
+        "pre": {
+          "type": "string",
+          "description": "This scripts will be run previous the interpolation process, and its intended to install the dependencies for the template",
+          "minLength": 5,
+          "pattern": "\\w*\\.(sh|js)$"
+        },
+        "for_each": {
+          "type": "string",
+          "description": "Recipe script that run for each file in the interpolation process",
+          "minLength": 5,
+          "pattern": "\\w*\\.(sh|js)$"
+        },
+        "post": {
+          "type": "string",
+          "description": "Post installation script that execute after interpolation process finished",
+          "minLength": 5,
+          "pattern": "\\w*\\.(sh|js)$"
+        },
+        "rollback": {
+          "type": "string",
+          "description": "Rollback script that execute if something fails in the templating process",
+          "minLength": 5,
+          "pattern": "\\w*\\.(sh|js)$"
+        }
+      }
+    },
+    "interpolations": {
+      "type": "object",
+      "description": "Interpolation configuration for this template",
+      "required": ["source"],
+      "properties": {
+        "source": {
+          "description": "Folder to interpolate for the cloud component",
+          "type": "string",
+          "minLength": 2
+        },
+        "substitutions": {
+          "description": "Additional substitutions variables to add in the interpolation process",
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "output": {
+      "type": "array",
+      "description": "A list of output from cloud component",
+      "default": ["service_account.json"],
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
