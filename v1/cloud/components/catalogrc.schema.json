@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema",
   "type": "object",
   "description": "Catalog information for a list of cloud components in Seki",
-  "required": ["name", "descriptions", "types"],
+  "required": ["name", "descriptions", "types", "author"],
   "properties": {
     "required": true,
     "name": {
@@ -41,6 +41,20 @@
         "pattern": "^[a-z0-9_]+\\/{0,1}componentrc\\.json$"
       },
       "minItems": 1
+    },
+    "author": {
+      "type": "object",
+      "required": ["name", "github_user"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name"
+        },
+        "github_user": {
+          "type": "string",
+          "description": "Name of the github user (public profile name)"
+        }
+      }
     }
   }
 }
