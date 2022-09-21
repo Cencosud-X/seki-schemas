@@ -10,14 +10,15 @@
           "readOnly": true
         },
         "settings": {
-          "required": [],
+          "required": ["connectionString"],
           "type": "object",
           "description": "Specific configuration",
           "properties": {
-            "credentialsPath": {
+            "connectionString": {
               "type": "string",
               "description": "MongoDB connection string",
-              "minLength": 2
+              "minLength": 2,
+              "default": "mongodb://localhost:27017/mydb"
             }
           }
         }

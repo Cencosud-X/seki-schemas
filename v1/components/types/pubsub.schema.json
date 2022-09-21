@@ -10,7 +10,7 @@
           "readOnly": true
         },
         "settings": {
-          "required": [],
+          "required": ["credentialsPath"],
           "type": "object",
           "description": "Specific configuration",
           "properties": {
