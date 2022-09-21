@@ -13,7 +13,7 @@
       }
     },
     {
-      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/cloud/components/types"
+      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/cloud/components/types/base.schema.json"
     }
   ]
 }
