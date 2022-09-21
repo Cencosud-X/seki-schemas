@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "allOf": [
+    {
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "Cloud component type",
+          "enum": ["pubsub"],
+          "readOnly": true
+        },
+        "settings": {
+          "required": [],
+          "type": "object",
+          "description": "Specific configuration",
+          "properties": {
+            "credentialsPath": {
+              "type": "string",
+              "description": "Google service account path",
+              "minLength": 2,
+              "default": "/config/pubsub_default.json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/components/types/base.schema.json"
+    }
+  ]
+}

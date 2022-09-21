@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "allOf": [
+    {
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "Cloud component type",
+          "enum": ["mongodb"],
+          "readOnly": true
+        },
+        "settings": {
+          "required": [],
+          "type": "object",
+          "description": "Specific configuration",
+          "properties": {
+            "credentialsPath": {
+              "type": "string",
+              "description": "MongoDB connection string",
+              "minLength": 2
+            }
+          }
+        }
+      }
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/components/types/base.schema.json"
+    }
+  ]
+}
