@@ -71,6 +71,10 @@
           }
         }
       }
+    },
+    "$schema": {
+      "type": "string",
+      "description": "Schema JSON associated"
     }
   },
   "additionalProperties": false
