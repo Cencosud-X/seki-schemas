@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "description": "Seki system settings",
+  "required": ["origins"],
+  "properties": {
+    "origins": {
+      "scopes": ["user", "workspace"],
+      "description": "Catalogs origin's for additional sources for templates",
+      "type": "object",
+      "properties": {
+        "products": {
+          "description": "Additional sources for products type templates",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "string",
+            "description": "GitHub Repository URL for the catalog rc and product templates"
+          }
+        },
+        "projects": {
+          "description": "Additional sources for projects type templates",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "GitHub Repository URL for the catalog rc and project types templates"
+          }
+        },
+        "cloud_components": {
+          "description": "Additional sources for projects type templates",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "GitHub Repository URL for the catalog rc and project types templates"
+          }
+        }
+      }
+    },
+    "environment": {
+      "scopes": ["user"],
+      "description": "Environment definitions",
+      "type": "object",
+      "properties": {
+        "cli_path": {
+          "type": "string",
+          "description": "Seki CLI path"
+        }
+      }
+    },
+    "developer": {
+      "scopes": ["user"],
+      "description": "Developer Devkit",
+      "type": "object",
+      "properties": {
+        "templating": {
+          "scopes": ["user"],
+          "description": "Templating clonings override (for Devkit)",
+          "type": "object",
+          "properties": {
+            "project_types": {
+              "description": "Overrides the folder that the project types templating clone from Github",
+              "type": "string"
+            },
+            "product_types": {
+              "description": "Overrides the folder that the product types templating clone from Github",
+              "type": "string"
+            },
+            "cloud_components_types": {
+              "description": "Overrides the folder that the cloud component types templating clone from Github",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
