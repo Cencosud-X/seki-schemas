@@ -3,7 +3,7 @@
   "outputs": {
     "type": "object",
     "default": {
-      "GOOGLE_CREDENTIALS": "{{identifier}}_google_credentials.json"
+      "GOOGLE_CREDENTIALS": "google_credentials_{{identifier}}.json"
     }
   },
   "allOf": [
