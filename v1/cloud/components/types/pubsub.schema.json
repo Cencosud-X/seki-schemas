@@ -1,5 +1,11 @@
 {
   "$schema": "http://json-schema.org/schema",
+  "outputs": {
+    "type": "object",
+    "default": {
+      "GOOGLE_CREDENTIALS": "{{identifier}}_google_credentials.json"
+    }
+  },
   "allOf": [
     {
       "properties": {
