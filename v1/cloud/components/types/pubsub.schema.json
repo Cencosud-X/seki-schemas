@@ -101,19 +101,6 @@
               }
             }
           }
-        },
-        "outputs": {
-          "type": "object",
-          "properties": {
-            "GOOGLE_CREDENTIALS": {
-              "type": "string",
-              "description": "Google credentials path relative to config folder",
-              "readOnly": true
-            }
-          },
-          "default": {
-            "GOOGLE_CREDENTIALS": "google_credentials_{{identifier}}.json"
-          }
         }
       }
     },
