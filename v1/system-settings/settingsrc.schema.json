@@ -1,14 +1,15 @@
 {
   "$schema": "http://json-schema.org/schema",
   "description": "Seki system settings",
-  "required": ["origins"],
   "properties": {
     "origins": {
-      "scopes": ["user", "workspace"],
+      "scopes": ["workspace"],
       "description": "Catalogs origin's for additional sources for templates",
+      "title": "Catalog Sources",
       "type": "object",
       "properties": {
         "products": {
+          "title": "Products",
           "description": "Additional sources for products type templates",
           "type": "array",
           "minItems": 0,
@@ -18,6 +19,7 @@
           }
         },
         "projects": {
+          "title": "Projects",
           "description": "Additional sources for projects type templates",
           "type": "array",
           "items": {
@@ -26,6 +28,7 @@
           }
         },
         "cloud_components": {
+          "title": "Cloud Components",
           "description": "Additional sources for projects type templates",
           "type": "array",
           "items": {
@@ -39,8 +42,10 @@
       "scopes": ["user"],
       "description": "Environment definitions",
       "type": "object",
+      "title": "Environment",
       "properties": {
         "cli_path": {
+          "title": "CLI Path",
           "type": "string",
           "description": "Seki CLI path"
         }
@@ -50,21 +55,26 @@
       "scopes": ["user"],
       "description": "Developer Devkit",
       "type": "object",
+      "title": "Developer",
       "properties": {
         "templating": {
+          "title": "Templates",
           "scopes": ["user"],
           "description": "Templating clonings override (for Devkit)",
           "type": "object",
           "properties": {
-            "project_types": {
+            "PROJECT_TEMPLATE_REPOSITORY_URL": {
+              "title": "Repository Project Url",
               "description": "Overrides the folder that the project types templating clone from Github",
               "type": "string"
             },
-            "product_types": {
+            "PRODUCT_TEMPLATE_REPOSITORY_URL": {
+              "title": "Repository Product Url",
               "description": "Overrides the folder that the product types templating clone from Github",
               "type": "string"
             },
-            "cloud_components_types": {
+            "REQUISITES_REPOSITORY_URL": {
+              "title": "Repository Requisites Url",
               "description": "Overrides the folder that the cloud component types templating clone from Github",
               "type": "string"
             }
