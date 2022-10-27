@@ -8,7 +8,7 @@
     "descriptions",
     "scripts",
     "interpolations",
-    "output"
+    "outputs"
   ],
   "properties": {
     "required": true,
@@ -97,13 +97,9 @@
         }
       }
     },
-    "output": {
-      "type": "array",
-      "description": "A list of output from cloud component",
-      "default": ["service_account.json"],
-      "items": {
-        "type": "string"
-      }
+    "outputs": {
+      "type": "object",
+      "description": "Outputs of the cloud component"
     }
   }
 }
