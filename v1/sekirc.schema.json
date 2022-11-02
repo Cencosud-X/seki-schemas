@@ -92,16 +92,23 @@
       "properties": {
         "version": {
           "default": 1,
+          "minimum": 1,
           "type": "integer",
           "description": "Url version"
         },
         "replicas": {
           "default": 1,
+          "minimum": 1,
           "type": "integer",
           "description": "Number of instances to replicate"
         },
         "resources": {
           "$ref": "#/definitions/resourceDefinition"
+        },
+        "delete": {
+          "default": false,
+          "type": "boolean",
+          "description": "Delete deployment from stage"
         }
       }
     },

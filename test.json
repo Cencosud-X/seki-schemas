@@ -1,0 +1,93 @@
+{
+  "$schema": "./v1/sekirc.schema.json",
+  "name": "Seki",
+  "description": "The forge to rule them all. \nAn automation tool for crafting legendary weapons",
+  "notifications": {
+    "email": "kmilo8346@gmail.com"
+  },
+  "targets": {
+    "ui": {
+      "alias": "Seki UI",
+      "description": "Web app to mount via electron. \nThe connection to OS capabilities was inspired via ionic plugins framework. using a javascript bridge API.",
+      "skip": true,
+      "stages": {
+        "staging": {
+          "version": 1
+        }
+      },
+      "vulnerabilities": {
+        "ignores": ["CVE-12-1"]
+      }
+    },
+    "electron": {
+      "alias": "Electron Packager",
+      "description": "Electron Framework app to package Seki UI to Mac operating systems.",
+      "stages": {
+        "staging": {
+          "version": 1
+        }
+      }
+    },
+    "core": {
+      "alias": "Core Library",
+      "description": "Useful shared classes that are availables for all project's in the monorepo."
+    },
+    "models": {
+      "skip": true,
+      "alias": "Model's Library",
+      "description": "Library that contains all the model definition for Seki."
+    },
+    "cli": {
+      "alias": "Command line interface (CLI)",
+      "description": "All the command that interact with the filesystem in the ecosystem with seki , will be here"
+    },
+    "api": {
+      "alias": "Seki API",
+      "description": "Backend for Seki used to hide oauth secrets and other functionalities.",
+      "stages": {
+        "staging": {
+          "version": 1,
+          "replicas": 2,
+          "resources": {
+            "cpu": 300,
+            "memory": 512
+          }
+        }
+      },
+      "vulnerabilities": {
+        "ignores": [
+          "CVE-2021-3807",
+          "CVE-2021-43138",
+          "CVE-2022-21676",
+          "CVE-2022-0155",
+          "CVE-2020-28469",
+          "GHSA-6x33-pw7p-hmpq",
+          "CVE-2022-25851",
+          "GHSA-8j8c-7jfh-h6hx",
+          "CVE-2021-3918",
+          "CVE-2021-44906",
+          "CVE-2022-24771",
+          "CVE-2022-24772",
+          "CVE-2022-22912",
+          "CVE-2021-42740",
+          "CVE-2022-0355",
+          "CVE-2021-27290",
+          "CVE-2021-23358",
+          "CVE-2022-0686",
+          "CVE-2022-37434",
+          "CVE-2021-3749",
+          "CVE-2022-25858",
+          "CVE-2021-33574",
+          "CVE-2021-35942",
+          "CVE-2022-23218",
+          "CVE-2022-23219",
+          "CVE-2020-1752",
+          "CVE-2020-6096",
+          "CVE-2021-3326",
+          "CVE-2021-3999",
+          "CVE-2022-3517"
+        ]
+      }
+    }
+  }
+}
