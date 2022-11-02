@@ -54,7 +54,8 @@
         "stages": {
           "default": {
             "staging": {
-              "version": 1
+              "version": 1,
+              "replica": 1
             }
           },
           "type": "object",
