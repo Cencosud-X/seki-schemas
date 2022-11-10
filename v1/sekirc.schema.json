@@ -55,6 +55,10 @@
           "type": "string",
           "minLength": 3
         },
+        "kind": {
+          "description": "Project kind",
+          "type": "string"
+        },
         "stages": {
           "default": {
             "staging": {
