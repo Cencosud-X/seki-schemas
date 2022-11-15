@@ -12,16 +12,12 @@
           "readOnly": true
         },
         "settings": {
-          "required": [],
+          "required": [
+            "port"
+          ],
           "type": "object",
           "description": "Specific configuration",
           "properties": {
-            "prefix": {
-              "type": "string",
-              "description": "Global prefix for the api routes",
-              "minLength": 2,
-              "default": "api"
-            },
             "port": {
               "type": "integer",
               "description": "Port to lift the api",

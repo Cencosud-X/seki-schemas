@@ -38,6 +38,9 @@
     "targetDefinition": {
       "type": "object",
       "description": "Project to configure",
+      "required": [
+        "kind"
+      ],
       "properties": {
         "skip": {
           "description": "Mark the project skipped",
