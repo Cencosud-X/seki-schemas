@@ -26,6 +26,34 @@
               "type":"boolean",
               "default": false
             }
+          },
+          "if": {
+            "properties": {
+              "publishable": {
+                "const": true
+              }
+            },
+            "required": ["publishable"]
+          },
+          "then": {
+            "properties": {
+              "npm": {
+                "required": ["account", "organization"],
+                "type":"object",
+                "description": "npm configuration for publishing",
+                "properties": {
+                  "account": {
+                    "type": "string",
+                    "description": "npm account to publish"
+                  },
+                  "organization": {
+                    "type": "string",
+                    "description": "npm organization name"
+                  }
+                }
+              }
+            },
+            "required": ["npm"]
           }
         }
       }
