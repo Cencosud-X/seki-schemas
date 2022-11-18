@@ -44,7 +44,7 @@
                 "properties": {
                   "account": {
                     "type": "string",
-                    "description": "npm account to publish"
+                    "description": "npm cloud component identifier"
                   },
                   "organization": {
                     "type": "string",
