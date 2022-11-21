@@ -6,17 +6,17 @@
         "kind": {
           "type": "string",
           "description": "Cloud component type",
-          "enum": ["pubsub"],
+          "enum": ["kafka"],
           "readOnly": true
         },
         "properties": {
           "type": "object",
           "required": ["topics"],
-          "description": "PubSub properties",
+          "description": "Kafka properties",
           "properties": {
             "topics": {
               "type": "array",
-              "description": "Setup the topics that we will create in PubSub",
+              "description": "Setup the topics that we will create in kafka",
               "minItems": 1,
               "items": {
                 "type": "string",
