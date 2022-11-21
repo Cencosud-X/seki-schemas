@@ -9,11 +9,6 @@
           "enum": ["npm"],
           "readOnly": true
         },
-        "identifier": {
-          "type": "string",
-          "description": "Cloud component identifier",
-          "default": "cencosudx"
-        },
         "settings": {}
       }
     },

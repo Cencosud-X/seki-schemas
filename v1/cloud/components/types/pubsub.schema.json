@@ -9,97 +9,20 @@
           "enum": ["pubsub"],
           "readOnly": true
         },
-        "settings": {
+        "properties": {
           "type": "object",
-          "required": ["targets"],
+          "required": ["topics"],
           "description": "PubSub settings",
           "properties": {
-            "targets": {
+            "topics": {
               "type": "array",
-              "description": "List of targets",
+              "description": "PubSub topics",
               "minItems": 1,
               "items": {
-                "type": "object",
-                "required": ["target", "topics"],
-                "properties": {
-                  "target": {
-                    "type": "string",
-                    "description": "Target deploy",
-                    "enum": ["staging", "production"]
-                  },
-                  "topics": {
-                    "type": "array",
-                    "description": "PubSub topics",
-                    "minItems": 1,
-                    "items": {
-                      "type": "string",
-                      "pattern": "^[a-z0-9.-]+$"
-                    }
-                  },
-                  "subscriptions": {
-                    "type": "array",
-                    "description": "PubSub subscriptions",
-                    "minItems": 1,
-                    "items": {
-                      "type": "object",
-                      "required": ["name", "topic"],
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "Subscription name",
-                          "pattern": "^[a-z0-9.-]+$"
-                        },
-                        "topic": {
-                          "type": "string",
-                          "description": "Subscription related topic",
-                          "pattern": "^[a-z0-9.-]+$"
-                        },
-                        "ack_deadline": {
-                          "type": "integer",
-                          "description": "Subscription ack deadline in seconds",
-                          "default": 10
-                        },
-                        "retry_policy": {
-                          "type": "object",
-                          "required": ["min_backoff"],
-                          "description": "Subscription retry policy",
-                          "properties": {
-                            "min_backoff": {
-                              "type": "integer",
-                              "description": "Min backoff in seconds",
-                              "default": 10
-                            },
-                            "max_backoff": {
-                              "type": "integer",
-                              "description": "Max backoff in seconds"
-                            }
-                          },
-                          "default": {
-                            "min_backoff": 10
-                          }
-                        },
-                        "dead_letter_policy": {
-                          "type": "object",
-                          "required": ["name"],
-                          "description": "Subscription dead letter policy",
-                          "properties": {
-                            "name": {
-                              "type": "string",
-                              "description": "Name of dead letter topic",
-                              "pattern": "^[a-z0-9.-]+$"
-                            },
-                            "max_delivery_attempts": {
-                              "type": "integer",
-                              "default": 5
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
+                "type": "string",
+                "pattern": "^[a-z0-9.-]+$"
               }
-            }
+            } 
           }
         }
       }
