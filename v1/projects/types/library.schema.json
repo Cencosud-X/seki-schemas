@@ -38,14 +38,10 @@
           "then": {
             "properties": {
               "npm": {
-                "required": ["account", "organization"],
+                "required": ["organization"],
                 "type":"object",
                 "description": "npm configuration for publishing",
                 "properties": {
-                  "account": {
-                    "type": "string",
-                    "description": "npm cloud component identifier"
-                  },
                   "organization": {
                     "type": "string",
                     "description": "npm organization name"
