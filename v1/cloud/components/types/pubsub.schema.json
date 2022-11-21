@@ -12,7 +12,7 @@
         "properties": {
           "type": "object",
           "required": ["topics"],
-          "description": "PubSub settings",
+          "description": "PubSub properties",
           "properties": {
             "topics": {
               "type": "array",

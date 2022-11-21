@@ -9,7 +9,10 @@
           "enum": ["npm"],
           "readOnly": true
         },
-        "settings": {}
+        "properties": {
+          "type":"object",
+          "default": {}
+        }
       }
     },
     {

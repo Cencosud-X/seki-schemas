@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "required": ["identifier", "kind", "settings"],
+  "required": ["identifier", "kind", "properties"],
   "properties": {
     "identifier": {
       "type": "string",
