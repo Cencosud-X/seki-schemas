@@ -14,27 +14,7 @@
           "description": "Cloud component identifier",
           "default": "cencosudx"
         },
-        "settings": {
-          "type": "object",
-          "required": ["account", "organizations"],
-          "description": "NPM settings",
-          "properties": {
-            "account": {
-              "type": "string",
-              "description": "Account name",
-              "pattern": "^[a-z0-9.-]+$"
-            },
-            "organizations": {
-              "type": "array",
-              "description": "List of organizations",
-              "minItems": 1,
-              "items": {
-                "type": "string",
-                "pattern": "^[a-z0-9.-]+$"
-              }
-            }
-          }
-        }
+        "settings": {}
       }
     },
     {
