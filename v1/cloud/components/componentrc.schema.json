@@ -98,8 +98,13 @@
       }
     },
     "outputs": {
-      "type": "object",
-      "description": "Outputs of the cloud component"
+      "type": "array",
+      "description": "Outputs of the cloud component",
+      "items": {
+        "minItems":1,
+        "type":"string",
+        "description": "Output file declared for the specific insfrastructure component"
+      }
     }
   }
 }
