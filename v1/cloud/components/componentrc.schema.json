@@ -5,6 +5,7 @@
   "required": [
     "name",
     "tags",
+    "icons",
     "short_descriptions",
     "descriptions",
     "scripts",
@@ -25,6 +26,22 @@
       "items": {
         "type": "string",
         "minLength": 2
+      }
+    },
+    "icons": {
+      "type": "object",
+      "description": "Icons (svg)",
+      "properties": {
+        "dark": {
+          "type":"string",
+          "description": "icon for dark mode",
+          "pattern": "\\w*\\.(svg)$"
+        },
+        "light": {
+          "type":"string",
+          "description": "icon for dark mode",
+          "pattern": "\\w*\\.(svg)$"
+        }
       }
     },
     "short_descriptions": {
