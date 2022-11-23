@@ -31,6 +31,10 @@
     "icons": {
       "type": "object",
       "description": "Icons (svg)",
+      "required": [
+        "dark",
+        "light"
+      ],
       "properties": {
         "dark": {
           "type":"string",
