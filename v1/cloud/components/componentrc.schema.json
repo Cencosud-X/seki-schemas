@@ -5,10 +5,11 @@
   "required": [
     "name",
     "tags",
+    "short_descriptions",
     "descriptions",
     "scripts",
     "interpolations",
-    "outputs"
+    "output"
   ],
   "properties": {
     "required": true,
@@ -24,6 +25,31 @@
       "items": {
         "type": "string",
         "minLength": 2
+      }
+    },
+    "short_descriptions": {
+      "description": "Localized subtitle to describe the cloud component",
+      "type": "object",
+      "required": ["es", "en"],
+      "properties": {
+        "es": {
+          "type": "string",
+          "description": "Cloud component subtitle (spanish)",
+          "minLength": 5,
+          "maxLength": 50
+        },
+        "en": {
+          "type": "string",
+          "description": "Cloud component subtitle (english)",
+          "minLength": 5,
+          "maxLength": 50
+        },
+        "pt": {
+          "type": "string",
+          "description": "Cloud component subtitle (portugues)",
+          "minLength": 5,
+          "maxLength": 50
+        }
       }
     },
     "descriptions": {
@@ -97,14 +123,9 @@
         }
       }
     },
-    "outputs": {
-      "type": "array",
-      "description": "Outputs of the cloud component",
-      "items": {
-        "minItems":1,
-        "type":"string",
-        "description": "Output file declared for the specific insfrastructure component"
-      }
+    "output": {
+      "type": "string",
+      "description": "Output name for the cloud component"
     }
   }
 }
