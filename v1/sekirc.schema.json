@@ -1,6 +1,9 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "required": ["name", "notifications"],
+  "required": [
+    "name",
+    "notifications"
+  ],
   "properties": {
     "display_name": {
       "type": "string",
@@ -13,18 +16,6 @@
     "description": {
       "type": "string",
       "description": "Product description"
-    },
-    "notifications": {
-      "required": ["email"],
-      "type": "object",
-      "description": "Configuration for notifications",
-      "properties": {
-        "email": {
-          "type": "string",
-          "description": "email address for email notifications",
-          "format": "email"
-        }
-      }
     },
     "targets": {
       "type": "object",
@@ -45,13 +36,50 @@
         "skip": {
           "description": "Mark the project skipped",
           "default": true,
-          "enum": [true],
+          "enum": [
+            true
+          ],
           "type": "boolean"
         },
         "alias": {
           "description": "Alias for the project (for use in Seki)",
           "type": "string",
           "minLength": 3
+        },
+        "definition": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "Name of the project type name",
+              "type": "string",
+              "minLength": 3
+            },
+            "url": {
+              "description": "Url to the path that contains the manifiest.json for the cloud component",
+              "type": "string",
+              "minLength": 3
+            },
+            "icons": {
+              "type": "object",
+              "description": "Icons (svg)",
+              "required": [
+                "dark",
+                "light"
+              ],
+              "properties": {
+                "dark": {
+                  "type": "string",
+                  "description": "icon for dark mode",
+                  "pattern": "\\w*\\.(svg)$"
+                },
+                "light": {
+                  "type": "string",
+                  "description": "icon for dark mode",
+                  "pattern": "\\w*\\.(svg)$"
+                }
+              }
+            }
+          }
         },
         "description": {
           "description": "Description for the project (for use in Seki)",
@@ -70,7 +98,9 @@
             }
           },
           "type": "object",
-          "required": ["staging"],
+          "required": [
+            "staging"
+          ],
           "description": "Stages specific configuration",
           "properties": {
             "staging": {
@@ -98,7 +128,9 @@
       "additionalProperties": false
     },
     "stageDefinition": {
-      "required": ["version"],
+      "required": [
+        "version"
+      ],
       "type": "object",
       "description": "Staging configurations",
       "properties": {
