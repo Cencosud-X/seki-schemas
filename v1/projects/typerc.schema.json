@@ -2,7 +2,16 @@
   "$schema": "http://json-schema.org/schema",
   "type": "object",
   "description": "Template configuration for the engine",
-  "required": ["name", "tags", "descriptions", "kind", "icons", "scripts", "interpolations"],
+  "required": [
+    "name",
+    "folder",
+    "tags",
+    "descriptions",
+    "kind",
+    "icons",
+    "scripts",
+    "interpolations"
+  ],
   "properties": {
     "required": true,
     "name": {
@@ -24,6 +33,11 @@
       "description": "type identifier for the cloud component (must be unique)",
       "minLength": 3
     },
+    "folder": {
+      "type": "string",
+      "description": "folder in which the template will be compiled (this property is the nx folder to place the templated project)",
+      "minLength": 3
+    },
     "icons": {
       "type": "object",
       "description": "Icons (svg)",
@@ -33,12 +47,12 @@
       ],
       "properties": {
         "dark": {
-          "type":"string",
+          "type": "string",
           "description": "icon for dark mode",
           "pattern": "\\w*\\.(svg)$"
         },
         "light": {
-          "type":"string",
+          "type": "string",
           "description": "icon for dark mode",
           "pattern": "\\w*\\.(svg)$"
         }
@@ -47,7 +61,10 @@
     "descriptions": {
       "description": "Localized descriptions to describe the template",
       "type": "object",
-      "required": ["es", "en"],
+      "required": [
+        "es",
+        "en"
+      ],
       "properties": {
         "es": {
           "type": "string",
@@ -69,7 +86,10 @@
     "scripts": {
       "type": "object",
       "description": "Recipe scripts (execution order: pre, for_each, post and when fails: rollback)",
-      "required": ["pre", "rollback"],
+      "required": [
+        "pre",
+        "rollback"
+      ],
       "properties": {
         "required": true,
         "pre": {
@@ -101,7 +121,9 @@
     "interpolations": {
       "type": "object",
       "description": "Interpolation configuration for this template",
-      "required": ["source"],
+      "required": [
+        "source"
+      ],
       "properties": {
         "source": {
           "description": "Folder to inteporlate for the template engine",
