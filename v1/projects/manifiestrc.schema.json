@@ -38,7 +38,7 @@
       "items": {
         "type": "string",
         "description": "project type rc file path",
-        "pattern": "^[a-z0-9_]+\\/{0,1}templaterc\\.json$"
+        "pattern": "^[a-z0-9_]+\\/{0,1}typerc\\.json$"
       },
       "minItems": 1
     },
