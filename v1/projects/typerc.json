@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema",
   "type": "object",
   "description": "Template configuration for the engine",
-  "required": ["name", "tags", "descriptions", "scripts", "interpolations"],
+  "required": ["name", "tags", "descriptions", "kind", "icons", "scripts", "interpolations"],
   "properties": {
     "required": true,
     "name": {
@@ -17,6 +17,31 @@
       "items": {
         "type": "string",
         "minLength": 2
+      }
+    },
+    "kind": {
+      "type": "string",
+      "description": "type identifier for the cloud component (must be unique)",
+      "minLength": 3
+    },
+    "icons": {
+      "type": "object",
+      "description": "Icons (svg)",
+      "required": [
+        "dark",
+        "light"
+      ],
+      "properties": {
+        "dark": {
+          "type":"string",
+          "description": "icon for dark mode",
+          "pattern": "\\w*\\.(svg)$"
+        },
+        "light": {
+          "type":"string",
+          "description": "icon for dark mode",
+          "pattern": "\\w*\\.(svg)$"
+        }
       }
     },
     "descriptions": {
