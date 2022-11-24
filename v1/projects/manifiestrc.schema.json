@@ -1,11 +1,8 @@
 {
   "$schema": "http://json-schema.org/schema",
   "type": "object",
-  "description": "Catalog information for a list of templates in Seki",
-  "required": [
-    "name",
-    "descriptions"
-  ],
+  "description": "Catalog information for a list of project types in Seki",
+  "required": ["name", "descriptions", "types", "author"],
   "properties": {
     "required": true,
     "name": {
@@ -16,10 +13,7 @@
     "descriptions": {
       "description": "Localized descriptions to describe the catalog",
       "type": "object",
-      "required": [
-        "es",
-        "en"
-      ],
+      "required": ["es", "en"],
       "properties": {
         "es": {
           "type": "string",
@@ -35,6 +29,30 @@
           "type": "string",
           "description": "catalog description (portugues)",
           "minLength": 5
+        }
+      }
+    },
+    "types": {
+      "type": "array",
+      "description": "List of available types",
+      "items": {
+        "type": "string",
+        "description": "project type rc file path",
+        "pattern": "^[a-z0-9_]+\\/{0,1}templaterc\\.json$"
+      },
+      "minItems": 1
+    },
+    "author": {
+      "type": "object",
+      "required": ["name", "github_user"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name"
+        },
+        "github_user": {
+          "type": "string",
+          "description": "Name of the github user (public profile name)"
         }
       }
     }
