@@ -4,6 +4,7 @@
   "description": "Configuration for the cloud component",
   "required": [
     "name",
+    "kind",
     "tags",
     "icons",
     "short_descriptions",
@@ -17,6 +18,11 @@
     "name": {
       "type": "string",
       "description": "Name of the cloud component",
+      "minLength": 3
+    },
+    "kind": {
+      "type": "string",
+      "description": "type identifier for the cloud component (must be unique)",
       "minLength": 3
     },
     "tags": {
