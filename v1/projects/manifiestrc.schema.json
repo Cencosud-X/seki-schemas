@@ -55,6 +55,26 @@
           "description": "Name of the github user (public profile name)"
         }
       }
+    },
+    "icons": {
+      "type": "object",
+      "description": "Icons (svg)",
+      "required": [
+        "dark",
+        "light"
+      ],
+      "properties": {
+        "dark": {
+          "type": "string",
+          "description": "icon for dark mode",
+          "pattern": "\\w*\\.(svg)$"
+        },
+        "light": {
+          "type": "string",
+          "description": "icon for dark mode",
+          "pattern": "\\w*\\.(svg)$"
+        }
+      }
     }
   }
 }
