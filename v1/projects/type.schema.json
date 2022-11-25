@@ -3,7 +3,6 @@
   "required": [
     "name",
     "description",
-    "path",
     "settings"
   ],
   "properties": {
