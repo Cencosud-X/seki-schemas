@@ -69,12 +69,17 @@
               "type": "string"
             },
             "PRODUCT_TEMPLATE_REPOSITORY_URL": {
-              "title": "Repository Product Url",
+              "title": "Product repository url",
               "description": "Overrides the folder that the product types templating clone from Github",
               "type": "string"
             },
             "REQUISITES_REPOSITORY_URL": {
-              "title": "Repository Requisites Url",
+              "title": "Requisites repository url",
+              "description": "Overrides the folder that the requesites types templating clone from Github",
+              "type": "string"
+            },
+            "CLOUD_COMPONENT_REPOSITORY_URL": {
+              "title": "Cloud component repository url",
               "description": "Overrides the folder that the cloud component types templating clone from Github",
               "type": "string"
             }
