@@ -103,19 +103,13 @@
     },
     "scripts": {
       "type": "object",
-      "description": "Recipe scripts (execution order: pre, for_each, post and when fails: rollback)",
-      "required": ["pre", "rollback"],
+      "description": "Recipe scripts (execution order: pre, post and when fails: rollback)",
+      "required": [],
       "properties": {
         "required": true,
         "pre": {
           "type": "string",
           "description": "This scripts will be run previous the interpolation process, and its intended to install the dependencies for the template",
-          "minLength": 5,
-          "pattern": "\\w*\\.(sh|js)$"
-        },
-        "for_each": {
-          "type": "string",
-          "description": "Recipe script that run for each file in the interpolation process",
           "minLength": 5,
           "pattern": "\\w*\\.(sh|js)$"
         },
