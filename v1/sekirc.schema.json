@@ -93,7 +93,7 @@
           "default": {
             "staging": {
               "version": 1,
-              "replica": 1
+              "replicas": 1
             }
           },
           "type": "object",
