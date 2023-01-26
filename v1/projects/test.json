@@ -1,0 +1,27 @@
+{
+    "$schema": "./type.schema.json",
+    "path": "apps/pubsub-to-kafka",
+    "name": "pubsub-to-kafka",
+    "alias": "PubSub to Kafka",
+    "description": "PubSub to Kafka",
+    "kind": "subscriber",
+    "definition": {
+        "name": "Subscriber",
+        "icons": {
+            "light": "icons/icon.svg",
+            "dark": "icons/icon.svg"
+        },
+        "url": "https://github.com/Cencosud-X/seki-project-templates.git"
+    },
+    "stages": {
+        "staging": {
+            "version": 1,
+            "replica": 1
+        },
+        "production": {
+            "version": 1,
+            "replica": 1
+        }
+    },
+    "settings": {}
+}
