@@ -3,7 +3,7 @@
   "type": "object",
   "description": "Configuration for the extension",
   "required": [
-    "id", "name", "tags", "icons", "short_descriptions", "descriptions", "trigger", "main_url"
+    "id", "name", "tags", "icons", "short_descriptions", "descriptions", "trigger", "main_url", "min_supported_version"
   ],
   "properties": {
     "id": {
