@@ -142,6 +142,11 @@
     "main_url": {
       "type": "string",
       "description": "Main url to load the extension. In that url the extension receive auth token and application context."
+    },
+    "min_supported_version": {
+      "type": "string",
+      "description": "Minimum version where the extension can be activate without problems.",
+      "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?(?:\\+[0-9A-Za-z-]+)?$"
     }
   }
 }
