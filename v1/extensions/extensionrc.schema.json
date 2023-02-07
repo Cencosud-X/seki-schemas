@@ -145,7 +145,7 @@
     },
     "min_supported_version": {
       "type": "string",
-      "description": "Minimum version where the extension can be activate without problems.",
+      "description": "Minimum version where the extension can be activate without problems. Must be a valid semver version.",
       "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?(?:\\+[0-9A-Za-z-]+)?$"
     }
   }
