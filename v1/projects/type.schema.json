@@ -99,11 +99,13 @@
       "properties": {
         "cpu": {
           "default": 300,
+          "minimum": 50,
           "type": "number",
           "description": "Maximun CPU(in millicores) to allocate for each replica"
         },
         "memory": {
           "default": 256,
+          "minimum": 16,
           "type": "integer",
           "description": "Maximun MB to allocate for each replica"
         }
