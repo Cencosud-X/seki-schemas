@@ -147,6 +147,24 @@
     "output": {
       "type": "string",
       "description": "Output name for the cloud component"
+    },
+    "color": {
+      "type": "string",
+      "description": "color that identifies the cloud component",
+      "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+    },
+    "stream": {
+      "type": "object",
+      "description": "cloud component information video",
+      "required": [
+        "uid"
+      ],
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "stream id"
+        }
+      }
     }
   }
 }
