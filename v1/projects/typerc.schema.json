@@ -16,7 +16,12 @@
     "required": true,
     "name": {
       "type": "string",
-      "description": "Name of the template",
+      "description": "Name of the kind",
+      "minLength": 3
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Name of the display name (in seki)",
       "minLength": 3
     },
     "tags": {
