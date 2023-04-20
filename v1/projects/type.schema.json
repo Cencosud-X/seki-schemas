@@ -12,6 +12,12 @@
       "minLength": 2,
       "readOnly": true
     },
+    "alias": {
+      "type": "string",
+      "description": "Project alias",
+      "minLength": 2,
+      "readOnly": true
+    },
     "description": {
       "type": "string",
       "description": "Project description",
@@ -23,6 +29,87 @@
       "description": "Project relative path to install",
       "minLength": 2,
       "readOnly": true
+    },
+    "kind": {
+      "type": "string",
+      "description": "Project kind",
+      "minLength": 2,
+      "readOnly": true
+    },
+    "skip": {
+      "type": "boolean",
+      "description": "Skip project deployment in the product pipeline. When this property is true the project will be skipped in any environment.",
+      "default": false
+    },
+    "stages": {
+      "default": {
+        "staging": {
+          "version": 1,
+          "replicas": 1
+        }
+      },
+      "type": "object",
+      "required": [
+        "staging"
+      ],
+      "description": "Stages specific configuration",
+      "properties": {
+        "staging": {
+          "$ref": "#/definitions/stageDefinition"
+        },
+        "production": {
+          "$ref": "#/definitions/stageDefinition"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "stageDefinition": {
+      "required": [
+        "version"
+      ],
+      "type": "object",
+      "description": "Staging configurations",
+      "properties": {
+        "version": {
+          "default": 1,
+          "minimum": 1,
+          "type": "integer",
+          "description": "Url version"
+        },
+        "replicas": {
+          "default": 1,
+          "minimum": 1,
+          "type": "integer",
+          "description": "Number of instances to replicate"
+        },
+        "resources": {
+          "$ref": "#/definitions/resourceDefinition"
+        },
+        "delete": {
+          "default": false,
+          "type": "boolean",
+          "description": "Delete deployment from stage"
+        }
+      }
+    },
+    "resourceDefinition": {
+      "type": "object",
+      "description": "Specific resources configuration",
+      "properties": {
+        "cpu": {
+          "default": 300,
+          "minimum": 50,
+          "type": "number",
+          "description": "Maximun CPU(in millicores) to allocate for each replica"
+        },
+        "memory": {
+          "default": 256,
+          "minimum": 16,
+          "type": "integer",
+          "description": "Maximun MB to allocate for each replica"
+        }
+      }
     }
   }
 }

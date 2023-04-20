@@ -1,0 +1,152 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "description": "Configuration for the extension",
+  "required": [
+    "id", "name", "tags", "icons", "short_descriptions", "descriptions", "trigger", "main_url", "min_supported_version"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identifier of the extension, must be unique to avoid conflicts.",
+      "minLength": 3
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the extension",
+      "minLength": 3
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags that describes technologies and functionalities of the extensions. Use it to improve search.",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 2
+      }
+    },
+    "icons": {
+      "type": "object",
+      "description": "Icons (svg)",
+      "required": [
+        "dark",
+        "light"
+      ],
+      "properties": {
+        "dark": {
+          "type":"string",
+          "description": "icon for dark mode",
+          "pattern": "\\w*\\.(svg)$"
+        },
+        "light": {
+          "type":"string",
+          "description": "icon for dark mode",
+          "pattern": "\\w*\\.(svg)$"
+        }
+      }
+    },
+    "short_descriptions": {
+      "description": "Localized subtitle to describe the extension",
+      "type": "object",
+      "required": ["es", "en"],
+      "properties": {
+        "es": {
+          "type": "string",
+          "description": "Extension subtitle (spanish)",
+          "minLength": 5,
+          "maxLength": 50
+        },
+        "en": {
+          "type": "string",
+          "description": "Extension subtitle (english)",
+          "minLength": 5,
+          "maxLength": 50
+        },
+        "pt": {
+          "type": "string",
+          "description": "Extension subtitle (portugues)",
+          "minLength": 5,
+          "maxLength": 50
+        }
+      }
+    },
+    "descriptions": {
+      "description": "Localized descriptions to describe the extension",
+      "type": "object",
+      "required": ["es", "en"],
+      "properties": {
+        "es": {
+          "type": "string",
+          "description": "Extension description (spanish)",
+          "minLength": 5
+        },
+        "en": {
+          "type": "string",
+          "description": "Extension description (english)",
+          "minLength": 5
+        },
+        "pt": {
+          "type": "string",
+          "description": "Extension description (portugues)",
+          "minLength": 5
+        }
+      }
+    },
+    "trigger": {
+      "description": "Trigger configuration to activate the extension",
+      "type": "object",
+      "required": [],
+      "oneOf": [
+        {
+          "required": ["kind", "config"],
+          "properties": {
+            "kind": {
+              "type": "string",
+              "description": "Kind of trigger",
+              "enum": ["product_tab_click"],
+              "default": "product_tab_click"
+            },
+            "config": {
+              "type": "object",
+              "description": "Configuration for the product tab trigger",
+              "required": ["tab_name"],
+              "properties": {
+                "tab_name": {
+                  "type": "object",
+                  "description": "Localized name of the tab to trigger the extension",
+                  "required": ["es", "en"],
+                  "properties": {
+                    "es": {
+                      "type": "string",
+                      "description": "Tab name (spanish)",
+                      "minLength": 3
+                    },
+                    "en": {
+                      "type": "string",
+                      "description": "Tab name (english)",
+                      "minLength": 3
+                    },
+                    "pt": {
+                      "type": "string",
+                      "description": "Tab name (portugues)",
+                      "minLength": 3
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "main_url": {
+      "type": "string",
+      "description": "Main url to load the extension. In that url the extension receive auth token and application context."
+    },
+    "min_supported_version": {
+      "type": "string",
+      "description": "Minimum version where the extension can be activate without problems. Must be a valid semver version.",
+      "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?(?:\\+[0-9A-Za-z-]+)?$"
+    }
+  }
+}

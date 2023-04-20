@@ -2,6 +2,15 @@
   "$schema": "http://json-schema.org/schema",
   "description": "Seki system settings",
   "properties": {
+    "extensions": {
+      "scopes": ["user", "workspace"],
+      "description": "Installed extensions that allow extend Seki functionalities.",
+      "title": "Installed extensions",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "origins": {
       "scopes": ["workspace"],
       "description": "Catalogs origin's for additional sources for templates",
