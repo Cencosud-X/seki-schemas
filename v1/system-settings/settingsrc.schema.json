@@ -47,6 +47,14 @@
         }
       }
     },
+
+    "meta_data": {
+      "scopes": ["workspace"],
+      "description": "Variable group for custom configuration settings",
+      "title": "Product metadata context",
+      "type": "object",
+      "additionalProperties": true
+    },
     "environment": {
       "scopes": ["user"],
       "description": "Environment definitions",
