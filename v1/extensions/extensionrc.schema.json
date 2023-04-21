@@ -147,6 +147,15 @@
       "type": "string",
       "description": "Minimum version where the extension can be activate without problems. Must be a valid semver version.",
       "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?(?:\\+[0-9A-Za-z-]+)?$"
+    },
+    "products": {
+      "type": "array",
+      "description": "List of seki products that would be shown the extension by default",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 2
+      }
     }
   }
 }
