@@ -150,7 +150,7 @@
     },
     "products": {
       "type": "array",
-      "description": "List of seki products that would be shown the extension by default",
+      "description": "List of seki products to which the extension would be displayed by default, if you want it to be displayed to all products add the wildcard ([ALL])",
       "minItems": 1,
       "items": {
         "type": "string",
