@@ -154,7 +154,8 @@
       "minItems": 1,
       "items": {
         "type": "string",
-        "minLength": 2
+        "minLength": 2,
+        "pattern": "^[^,]+$"
       }
     }
   }
