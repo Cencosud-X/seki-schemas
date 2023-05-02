@@ -5,6 +5,8 @@
   "required": [
     "name",
     "kind",
+    "owner",
+    "visibility",
     "tags",
     "icons",
     "short_descriptions",
@@ -24,6 +26,20 @@
       "type": "string",
       "description": "type identifier for the cloud component (must be unique)",
       "minLength": 3
+    },
+    "owner": {
+      "type": "array",
+      "description": "Owner product. Is an array to suppor co-creation or multiple product teams",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "visibility": {
+      "type": "string",
+      "description": "Define visibility. Private: Visible by onwer teams, Internal: Visible by any team, Public: Visible by Any",
+      "enum": ["private", "internal", "public"]
     },
     "tags": {
       "type": "array",
