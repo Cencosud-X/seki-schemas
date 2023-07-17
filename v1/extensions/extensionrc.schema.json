@@ -163,13 +163,19 @@
       "description": "Things that the extension depends on",
       "properties": {
         "cloud_components": {
-          "type": "array",
-          "description": "These cloud components need to be present for the extension to load",
-          "minItems": 1,
-          "items": {
-            "type": "string",
-            "minLength": 2,
-            "pattern": "^[^,]+$"
+          "type": "object",
+          "description": "Cloud components that the extension depends on",
+          "properties": {
+            "allOf": {
+              "type": "array",
+              "description": "All of these cloud components need to be present for the extension to load",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 2,
+                "pattern": "^[^,]+$"
+              }
+            }
           }
         }
       }
