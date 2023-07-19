@@ -44,6 +44,7 @@
     "stages": {
       "default": {
         "staging": {
+          "deployment_version": "v1",
           "version": 1,
           "replicas": 1
         }
@@ -69,7 +70,7 @@
         "version"
       ],
       "type": "object",
-      "description": "Staging configurations",
+      "description": "Stage configurations",
       "properties": {
         "version": {
           "default": 1,
@@ -90,6 +91,21 @@
           "default": false,
           "type": "boolean",
           "description": "Delete deployment from stage"
+        },
+        "deployment_version": {
+          "type": "string",
+          "default": "v1",
+          "description": "Deployment version to be used in Seki CI",
+          "oneOf": [
+            {
+              "const": "v1",
+              "title": "In this version you can define the resources  "
+            },
+            {
+              "const": "v2",
+              "title": "Vertical Pod Autoscaler (VPA) is enabled in this version"
+            }
+          ]
         }
       }
     },
