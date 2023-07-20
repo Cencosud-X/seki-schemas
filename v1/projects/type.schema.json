@@ -87,6 +87,9 @@
         "resources": {
           "$ref": "#/definitions/resourceDefinition"
         },
+        "limits": {
+          "$ref": "#/definitions/resourceDefinition"
+        },
         "delete": {
           "default": false,
           "type": "boolean",
@@ -112,6 +115,7 @@
     "resourceDefinition": {
       "type": "object",
       "description": "Specific resources configuration",
+      "required": ["cpu", "memory"],
       "properties": {
         "cpu": {
           "default": 300,
