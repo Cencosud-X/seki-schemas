@@ -126,7 +126,7 @@
           "update_mode": {
             "type": "string",
             "description": "Specifies whether recommended updates are applied when a Pod is started and whether recommended updates are applied during the life of a Pod",
-            "default": "Recreate",
+            "default": "Off",
             "oneOf": [
               {
                 "const": "Off",
@@ -152,7 +152,10 @@
     "resourceDefinition": {
       "type": "object",
       "description": "Specific resources configuration",
-      "required": ["cpu", "memory"],
+      "required": [
+        "cpu",
+        "memory"
+      ],
       "properties": {
         "cpu": {
           "default": 300,
