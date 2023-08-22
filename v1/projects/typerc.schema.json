@@ -16,7 +16,12 @@
     "required": true,
     "name": {
       "type": "string",
-      "description": "Name of the template",
+      "description": "Name of the kind",
+      "minLength": 3
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Name of the display name (in seki)",
       "minLength": 3
     },
     "tags": {
@@ -134,6 +139,24 @@
           "description": "Additional substitutions variables to add in the interpolation process",
           "type": "object",
           "additionalProperties": true
+        }
+      }
+    },
+    "color": {
+      "type": "string",
+      "description": "color that identifies the template",
+      "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+    },
+    "stream": {
+      "type": "object",
+      "description": "template information video",
+      "required": [
+        "uid"
+      ],
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "stream id"
         }
       }
     }

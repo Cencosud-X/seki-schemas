@@ -147,6 +147,38 @@
       "type": "string",
       "description": "Minimum version where the extension can be activate without problems. Must be a valid semver version.",
       "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?(?:\\+[0-9A-Za-z-]+)?$"
+    },
+    "products": {
+      "type": "array",
+      "description": "List of seki products to which the extension would be displayed by default, if you want it to be displayed to all products add the wildcard ([ALL])",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "pattern": "^[^,]+$"
+      }
+    },
+    "depends_on": {
+      "type": "object",
+      "description": "Things that the extension depends on",
+      "properties": {
+        "cloud_components": {
+          "type": "object",
+          "description": "Cloud components that the extension depends on",
+          "properties": {
+            "allOf": {
+              "type": "array",
+              "description": "All of these cloud components need to be present for the extension to load",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 2,
+                "pattern": "^[^,]+$"
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

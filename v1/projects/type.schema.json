@@ -44,6 +44,7 @@
     "stages": {
       "default": {
         "staging": {
+          "deployment_version": "v1",
           "version": 1,
           "replicas": 1
         }
@@ -69,7 +70,7 @@
         "version"
       ],
       "type": "object",
-      "description": "Staging configurations",
+      "description": "Stage configurations",
       "properties": {
         "version": {
           "default": 1,
@@ -86,24 +87,85 @@
         "resources": {
           "$ref": "#/definitions/resourceDefinition"
         },
+        "limits": {
+          "$ref": "#/definitions/resourceDefinition"
+        },
         "delete": {
           "default": false,
           "type": "boolean",
           "description": "Delete deployment from stage"
+        },
+        "deployment_version": {
+          "type": "string",
+          "default": "v2",
+          "description": "Deployment version to be used in Seki CI",
+          "oneOf": [
+            {
+              "const": "v1",
+              "title": "In this version you can define the resources"
+            },
+            {
+              "const": "v2",
+              "title": "Vertical Pod Autoscaler (VPA) is enabled in this version"
+            }
+          ]
+        }
+      },
+      "if": {
+        "properties": {
+          "deployment_version": {
+            "const": "v2"
+          }
+        },
+        "required": [
+          "deployment_version"
+        ]
+      },
+      "then": {
+        "properties": {
+          "update_mode": {
+            "type": "string",
+            "description": "Specifies whether recommended updates are applied when a Pod is started and whether recommended updates are applied during the life of a Pod",
+            "default": "Off",
+            "oneOf": [
+              {
+                "const": "Off",
+                "title": "VPA will only provide the recommendations, and it will not automatically change resource requirements"
+              },
+              {
+                "const": "Initial",
+                "title": "VPA only assigns resource requests on pod creation and never changes them later"
+              },
+              {
+                "const": "Recreate",
+                "title": "VPA assigns resource requests on pod creation time and updates them on existing pods by evicting and recreating them"
+              },
+              {
+                "const": "Auto",
+                "title": "It recreates the pod based on the recommendation"
+              }
+            ]
+          }
         }
       }
     },
     "resourceDefinition": {
       "type": "object",
       "description": "Specific resources configuration",
+      "required": [
+        "cpu",
+        "memory"
+      ],
       "properties": {
         "cpu": {
           "default": 300,
+          "minimum": 50,
           "type": "number",
           "description": "Maximun CPU(in millicores) to allocate for each replica"
         },
         "memory": {
           "default": 256,
+          "minimum": 16,
           "type": "integer",
           "description": "Maximun MB to allocate for each replica"
         }
