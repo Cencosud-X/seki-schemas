@@ -11,6 +11,10 @@
       "type": "string",
       "description": "Cloud component version",
       "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?(?:\\+[0-9A-Za-z-]+)?$"
+    },
+    "srcRepoUrl": {
+      "type": "string",
+      "description": "The URL to the Github repository where the terraform code resides. If not provided, the curated repository is asumed: https://github.com/Cencosud-xlabs/x-provisioners"
     }
   }
 }
