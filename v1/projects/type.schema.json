@@ -168,6 +168,11 @@
           "minimum": 16,
           "type": "integer",
           "description": "Maximun MB to allocate for each replica"
+        },
+        "storage": {
+          "default": 1,
+          "type": "integer",
+          "description": "Ephemeral storage in Gb to allocate for each replica"
         }
       }
     }
