@@ -15,6 +15,10 @@
     "srcRepoUrl": {
       "type": "string",
       "description": "The URL to the Github repository where the terraform code resides. If not provided, the curated repository is asumed: https://github.com/Cencosud-xlabs/x-provisioners"
+    },
+    "creator": {
+      "type": "string",
+      "description": "Product where the cloud-component was created. Only this product can edit the cloud-component. This is necessary to avoid conflicts. The secrets created in this project will be injected to the cloud component in runtime."
     }
   }
 }
