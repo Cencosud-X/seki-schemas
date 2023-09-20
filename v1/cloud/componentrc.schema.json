@@ -5,7 +5,6 @@
   "required": [
     "name",
     "kind",
-    "provider",
     "owner",
     "visibility",
     "tags",
@@ -26,12 +25,6 @@
     "kind": {
       "type": "string",
       "description": "type identifier for the cloud component (must be unique)",
-      "minLength": 3
-    },
-    "provider": {
-      "type": "string",
-      "enum": ["gcp", "aws"],
-      "description": "Provider used by seki ci to know where to deploy the cloud component",
       "minLength": 3
     },
     "owner": {
