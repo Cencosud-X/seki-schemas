@@ -1,0 +1,174 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "type": "object",
+    "description": "Configuration for Control Plane. Allow to configure max runners to support and where to call runner start endpoints",
+    "required": ["capacity", "runners"],
+    "properties": {
+      "capacity": {
+        "type": "number",
+        "default": 10,
+        "minimun": 1,
+        "description": "The capacity of tasks to be supported by the control plane"
+      },
+      "runners": {
+        "type": "object",
+        "description": "Runners configuration",
+        "required": [
+          "va_secrets",
+          "va_namespace",
+          "bs_golden_image",
+          "ci_create",
+          "ci_build",
+          "gd_build",
+          "ts_test",
+          "cd_deploy"
+        ],
+        "default": {
+          "va_secrets": {
+            "timeout": 30,
+            "endpoint": "RUNNER_ENDPOINT_HERE"
+          },
+          "va_namespace": {
+            "timeout": 30,
+            "endpoint": "RUNNER_ENDPOINT_HERE"
+          },
+          "bs_golden_image": {
+            "timeout": 30,
+            "endpoint": "RUNNER_ENDPOINT_HERE"
+          },
+          "ci_create": {
+            "kinds": [
+              {
+                "kind": "KIND_HERE",
+                "endpoint": "RUNNER_ENDPOINT_HERE",
+                "timeout": 30
+              }
+            ]
+          },
+          "ci_build": {
+            "kinds": [
+              {
+                "kind": "KIND_HERE",
+                "endpoint": "RUNNER_ENDPOINT_HERE",
+                "timeout": 30
+              }
+            ]
+          },
+          "gd_build": {
+            "kinds": [
+              {
+                "kind": "KIND_HERE",
+                "endpoint": "RUNNER_ENDPOINT_HERE",
+                "timeout": 30
+              }
+            ]
+          },
+          "ts_test": {
+            "kinds": [
+              {
+                "kind": "KIND_HERE",
+                "endpoint": "RUNNER_ENDPOINT_HERE",
+                "timeout": 30
+              }
+            ]
+          },
+          "cd_deploy": {
+            "kinds": [
+              {
+                "kind": "KIND_HERE",
+                "endpoint": "RUNNER_ENDPOINT_HERE",
+                "timeout": 30
+              }
+            ]
+          }
+        },
+        "properties": {
+          "va_secrets": {
+            "$ref": "#/definitions/runnerDefinition"
+          },
+          "va_namespace": {
+            "$ref": "#/definitions/runnerDefinition"
+          },
+          "bs_golden_image": {
+            "$ref": "#/definitions/runnerDefinition"
+          },
+          "ci_create": {
+            "$ref": "#/definitions/runnerMultiKindDefinition"
+          },
+          "ci_build": {
+            "$ref": "#/definitions/runnerMultiKindDefinition"
+          },
+          "gd_build": {
+            "$ref": "#/definitions/runnerMultiKindDefinition"
+          },
+          "ts_test": {
+            "$ref": "#/definitions/runnerMultiKindDefinition"
+          },
+          "cd_deploy": {
+            "$ref": "#/definitions/runnerMultiKindDefinition"
+          }
+        }
+      }
+    },
+    "definitions": {
+      "runnerDefinition": {
+        "required": ["endpoint"],
+        "default": {
+          "endpoint": "RUNNER_ENDPOINT_HERE",
+          "timeout": 30
+        },
+        "type": "object",
+        "description": "Runner configuration",
+        "properties": {
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint url to invoke the runner"
+          },
+          "timeout": {
+            "type": "number",
+            "default": 30,
+            "description": "Timeout in seconds for the execution of the runner"
+          }
+        }
+      },
+      "runnerMultiKindDefinition": {
+        "type": "object",
+        "default": {
+          "kinds": []
+        },
+        "required": ["kinds"],
+        "properties": {
+          "kinds": {
+            "type": "array",
+            "required": ["kind", "endpoint"],
+            "default": [
+              {
+                "kind": "KIND_HERE",
+                "endpoint": "RUNNER_ENDPOINT_HERE",
+                "timeout": 30
+              }
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "description": "Kind of task to be invoked"
+                },
+                "endpoint": {
+                  "type": "string",
+                  "description": "Endpoint url to invoke the runner"
+                },
+                "timeout": {
+                  "type": "number",
+                  "default": 30,
+                  "description": "Timeout in seconds for the execution of the runner"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
