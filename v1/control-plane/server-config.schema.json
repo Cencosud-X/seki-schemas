@@ -16,7 +16,7 @@
         "required": [
           "va_secrets",
           "va_namespace",
-          "bs_golden_image",
+          "bs_golden_dependencies",
           "ci_create",
           "ci_build",
           "gd_build",
@@ -32,7 +32,7 @@
             "timeout": 30,
             "endpoint": "RUNNER_ENDPOINT_HERE"
           },
-          "bs_golden_image": {
+          "bs_golden_dependencies": {
             "timeout": 30,
             "endpoint": "RUNNER_ENDPOINT_HERE"
           },
@@ -89,7 +89,7 @@
           "va_namespace": {
             "$ref": "#/definitions/runnerDefinition"
           },
-          "bs_golden_image": {
+          "bs_golden_dependencies": {
             "$ref": "#/definitions/runnerDefinition"
           },
           "ci_create": {
