@@ -117,6 +117,7 @@
     "runnerDefinition": {
       "required": ["kind", "endpoint"],
       "default": {
+        "kind": "KIND_HERE",
         "endpoint": "RUNNER_ENDPOINT_HERE",
         "timeout": 30
       },
